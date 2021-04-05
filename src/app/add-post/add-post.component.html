@@ -20,19 +20,19 @@
     <label for="category"> Select category</label>
     <select class="form-select" aria-label="Default select example "formControlName="category">
         <option selected>Open this select menu</option>
-        <option value="1">Sport</option>
-        <option value="2">Technologies</option>
-        <option value="3">Économie</option>
-        <option value="3">Société</option>
-        <option value="3">Culture</option>
+        <option value="Sport">Sport</option>
+        <option value="Technologies">Technologies</option>
+        <option value="Économie">Économie</option>
+        <option value="Société">Société</option>
+        <option value="Culture">Culture</option>
       </select>
       <div class="invalid-feedback d-block" *ngIf= "submitted && addPostForm.controls.category.hasError('required')">
         The category is required.
     </div>
 
   </div>
-  <button type="submit" class="btn btn-primary btn-block"(click)= "addPost()">Add Post</button>
-            <button type="submit" class="btn btn-danger btn-block"routerLink="/list-post">Cancel</button>
+  <button type="submit" class="btn btn-primary btn-block">Add Post</button>
+            <button type="button" class="btn btn-danger btn-block"routerLink="/list-post">Cancel</button>
         </form>
     </div>
   
