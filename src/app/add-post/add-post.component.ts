@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddPostComponent implements OnInit {
   submitted = false;
   addPostForm: FormGroup = new FormGroup({
-
+    id: new FormControl(''),
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
