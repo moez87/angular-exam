@@ -21,7 +21,7 @@ const routes: Routes = [
     component: AddPostComponent
   },
   {
-    path: 'update-post',
+    path: 'update-post/:i',
     component: UpdatePostComponent
   },
   {

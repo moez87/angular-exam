@@ -1,7 +1,6 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -14,13 +13,12 @@ export class AddPostComponent implements OnInit {
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    date: new FormControl(new Date()),
+    date: new FormControl(new Date().toUTCString()),
   });
 
-  constructor() { }
+  constructor(private router:Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   addPost() {
   
       this.submitted=true;
@@ -31,6 +29,7 @@ export class AddPostComponent implements OnInit {
       let posts= JSON.parse(localStorage.getItem('posts') || '[]');
       posts.push(this.addPostForm.value);
       localStorage.setItem('posts',JSON.stringify(posts));
+      this.router.navigateByUrl('/list-post')
     }
 
   }

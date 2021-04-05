@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 
 @Component({
@@ -9,15 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class ListPostComponent implements OnInit {
   posts:any
 
-  constructor() { }
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
 
     this.posts=JSON.parse(localStorage.getItem('posts') || '[]');
   }
   
-  deletepost(){
-
+  delete(i:number){
+    this.postService.deletePostByIndex(i)
+    this.posts= this.postService.getAllPosts()
+    
   }
+
 
 }
