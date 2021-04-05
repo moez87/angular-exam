@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title"placeholder="Type your title here" formControlName="title">
+          <div class="invalid-feedback d-block" *ngIf= "submitted && addPostForm.controls.title.hasError('required')">
+          The title is required.
+      </div>
+  </div>
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="Description"placeholder="Type your Description here" formControlName="description">
+      <div class="invalid-feedback d-block" *ngIf= "submitted && addPostForm.controls.description.hasError('required')">
+      The  Description is required.
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="category"> Select category</label>
+    <select class="form-select" aria-label="Default select example "formControlName="category">
+        <option selected>Open this select menu</option>
+        <option value="1">Sport</option>
+        <option value="2">Technologies</option>
+        <option value="3">Économie</option>
+        <option value="3">Société</option>
+        <option value="3">Culture</option>
+      </select>
+      <div class="invalid-feedback d-block" *ngIf= "submitted && addPostForm.controls.category.hasError('required')">
+        The category is required.
+    </div>
+
+  </div>
+  <button type="submit" class="btn btn-primary btn-block"(click)= "addPost()">Add Post</button>
+            <button type="submit" class="btn btn-danger btn-block"routerLink="/list-post">Cancel</button>
+        </form>
+    </div>
+  
+  
+  
+  </div>
